@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Firebase config (local use only)
+.firebase/
+.firebaserc
+firebase.json
+firebaseConfig.js
+
+
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
