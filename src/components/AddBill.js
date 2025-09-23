@@ -21,9 +21,18 @@ import {
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 
+const getDefaultBillPeriodStart = () => {
+    const date = new Date();
+    date.setDate(1);
+    date.setMonth(date.getMonth() - 1);
+    return date;
+};
+
 const AddBill = () => {
     const [settlementDate, setSettlementDate] = useState(null); // start as null for placeholder
-    const [billPeriodStart, setBillPeriodStart] = useState(null);
+    const [billPeriodStart, setBillPeriodStart] = useState(() =>
+        getDefaultBillPeriodStart(),
+    );
     const [billPeriodEnd, setBillPeriodEnd] = useState(null);
     const [amount, setAmount] = useState("");
     const [billName, setBillName] = useState("");
@@ -65,7 +74,7 @@ const AddBill = () => {
                 updatedAt: serverTimestamp(),
             });
             setSettlementDate(null);
-            setBillPeriodStart(null);
+            setBillPeriodStart(getDefaultBillPeriodStart());
             setBillPeriodEnd(null);
             setAmount("");
             setBillName("");
